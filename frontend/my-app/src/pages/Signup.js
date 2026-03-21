@@ -61,11 +61,11 @@ const styles = {
     title: { textAlign: "center", marginBottom: "20px" },
     input: {
         width: "100%", padding: "10px", marginBottom: "15px",
-        borderRadius: "5px", border: "1px solid #ddd", fontSize: "14px",
+        borderRadius: "5px", border: "1px solid #982525", fontSize: "14px",
         boxSizing: "border-box"
     },
     button: {
-        width: "100%", padding: "10px", background: "#4f46e5",
+        width: "100%", padding: "10px", background: "#46e590",
         color: "white", border: "none", borderRadius: "5px",
         fontSize: "16px", cursor: "pointer"
     }
