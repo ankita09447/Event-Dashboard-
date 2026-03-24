@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../Firebase";
 import { useNavigate } from "react-router-dom";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../Firebase";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -20,7 +22,21 @@ export default function Login() {
     const handleGoogleLogin = async () => {
         try {
             const provider = new GoogleAuthProvider();
-            await signInWithPopup(auth, provider);
+            const result = await signInWithPopup(auth, provider);
+
+            // Check if user already exists in Firestore
+            const userRef = doc(db, "users", result.user.uid);
+            const userSnap = await getDoc(userRef);
+
+            // If new user — save them as "user" role
+            if (!userSnap.exists()) {
+                await setDoc(userRef, {
+                    name: result.user.displayName || "User",
+                    email: result.user.email,
+                    role: "user",
+                    createdAt: new Date()
+                });
+            }
             navigate("/dashboard");
         } catch (err) {
             alert(err.message);

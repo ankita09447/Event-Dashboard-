@@ -65,7 +65,7 @@ export default function Events() {
             setRegisteredEvents([...registeredEvents, event.id]);
             setEvents(events.map(e => e.id === event.id ?
                 { ...e, seatsLeft: e.seatsLeft - 1 } : e));
-            showToast("Successfully Registered! 🎉");
+            showToast("Successfully Registered! ");
         } catch (err) {
             showToast("Something went wrong!");
         }
@@ -100,7 +100,7 @@ export default function Events() {
                 <h2 style={styles.logo}> Event Dashboard</h2>
                 <div style={styles.navRight}>
                     <span style={styles.navName}>
-                        👤 {auth.currentUser?.displayName || auth.currentUser?.email}
+                         {auth.currentUser?.displayName || auth.currentUser?.email}
                     </span>
                     <button style={styles.navBtn}
                         onClick={() => navigate("/dashboard")}>

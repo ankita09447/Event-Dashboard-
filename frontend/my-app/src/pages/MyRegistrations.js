@@ -50,9 +50,9 @@ export default function MyRegistrations() {
         <div style={styles.page}>
             {/* Navbar */}
             <div style={styles.navbar}>
-                <h2 style={styles.logo}>🎯 Event Dashboard</h2>
+                <h2 style={styles.logo}> Event Dashboard</h2>
                 <div style={styles.navRight}>
-                    <span style={styles.navName}>👤 {userName}</span>
+                    <span style={styles.navName}> {userName}</span>
                     <button style={styles.navBtn}
                         onClick={() => navigate("/events")}>
                         Browse Events
@@ -65,7 +65,7 @@ export default function MyRegistrations() {
 
             {/* Banner */}
             <div style={styles.banner}>
-                <h2 style={styles.bannerTitle}>My Registrations 🎟️</h2>
+                <h2 style={styles.bannerTitle}>My Registrations </h2>
                 <p style={styles.bannerSub}>Events you have registered for</p>
             </div>
 
@@ -99,15 +99,15 @@ export default function MyRegistrations() {
                                     </div>
                                     <div style={styles.cardBody}>
                                         <p style={styles.info}>
-                                            📅 Registered on: {" "}
+                                             Registered on: {" "}
                                             {reg.registeredAt?.toDate ?
                                                 reg.registeredAt.toDate().toLocaleDateString() :
                                                 "N/A"}
                                         </p>
-                                        <p style={styles.info}>🎫 Event ID: {reg.eventId}</p>
+                                        <p style={styles.info}> Event ID: {reg.eventId}</p>
                                         <div style={styles.confirmedBox}>
                                             <span style={styles.confirmedText}>
-                                                🎉 Your spot is confirmed!
+                                                 Your spot is confirmed!
                                             </span>
                                         </div>
                                     </div>
